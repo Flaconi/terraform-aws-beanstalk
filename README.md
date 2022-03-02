@@ -25,7 +25,7 @@ Template for Terraform modules
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.1 |
 
 <!-- TFDOCS_REQUIREMENTS_END -->
 
@@ -95,6 +95,14 @@ Description: Specify a security policy to apply to the listener. This option is 
 Type: `string`
 
 Default: `""`
+
+### <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type)
+
+Description: Instances type
+
+Type: `string`
+
+Default: `"t2.micro"`
 
 ### <a name="input_healthcheck_url"></a> [healthcheck\_url](#input\_healthcheck\_url)
 
