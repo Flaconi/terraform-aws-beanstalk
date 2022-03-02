@@ -25,6 +25,12 @@ variable "loadbalancer_ssl_policy" {
   description = "Specify a security policy to apply to the listener. This option is only applicable to environments with an application load balancer"
 }
 
+variable "instance_type" {
+  type        = string
+  default     = "t2.micro"
+  description = "Instances type"
+}
+
 variable "healthcheck_url" {
   type        = string
   default     = "/healthz"
