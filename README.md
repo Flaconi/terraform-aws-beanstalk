@@ -1,11 +1,9 @@
 # terraform-module-template
 Template for Terraform modules
 
-<!-- Uncomment and replace with your module name
-[![lint](https://github.com/flaconi/<MODULENAME>/workflows/lint/badge.svg)](https://github.com/flaconi/<MODULENAME>/actions?query=workflow%3Alint)
-[![test](https://github.com/flaconi/<MODULENAME>/workflows/test/badge.svg)](https://github.com/flaconi/<MODULENAME>/actions?query=workflow%3Atest)
-[![Tag](https://img.shields.io/github/tag/flaconi/<MODULENAME>.svg)](https://github.com/flaconi/<MODULENAME>/releases)
--->
+[![lint](https://github.com/flaconi/terraform-aws-beanstalk/workflows/lint/badge.svg)](https://github.com/flaconi/terraform-aws-beanstalk/actions?query=workflow%3Alint)
+[![test](https://github.com/flaconi/terraform-aws-beanstalk/workflows/test/badge.svg)](https://github.com/flaconi/terraform-aws-beanstalk/actions?query=workflow%3Atest)
+[![Tag](https://img.shields.io/github/tag/flaconi/terraform-aws-beanstalk.svg)](https://github.com/flaconi/terraform-aws-beanstalk/releases)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 <!-- TFDOCS_HEADER_START -->
@@ -18,7 +16,7 @@ Template for Terraform modules
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 3.0 |
 
 <!-- TFDOCS_PROVIDER_END -->
 
@@ -27,7 +25,8 @@ Template for Terraform modules
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.1 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.0 |
 
 <!-- TFDOCS_REQUIREMENTS_END -->
 
@@ -97,6 +96,14 @@ Description: Specify a security policy to apply to the listener. This option is 
 Type: `string`
 
 Default: `""`
+
+### <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type)
+
+Description: Instances type
+
+Type: `string`
+
+Default: `"t3.micro"`
 
 ### <a name="input_healthcheck_url"></a> [healthcheck\_url](#input\_healthcheck\_url)
 
