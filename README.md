@@ -103,7 +103,7 @@ Description: Instances type
 
 Type: `string`
 
-Default: `"t2.micro"`
+Default: `"t3.micro"`
 
 ### <a name="input_healthcheck_url"></a> [healthcheck\_url](#input\_healthcheck\_url)
 
