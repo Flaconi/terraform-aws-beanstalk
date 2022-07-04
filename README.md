@@ -225,6 +225,22 @@ Type: `bool`
 
 Default: `true`
 
+### <a name="input_additional_settings"></a> [additional\_settings](#input\_additional\_settings)
+
+Description: Additional Elastic Beanstalk setttings. For full list of options, see https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html
+
+Type:
+
+```hcl
+list(object({
+    namespace = string
+    name      = string
+    value     = string
+  }))
+```
+
+Default: `[]`
+
 <!-- TFDOCS_INPUTS_END -->
 
 <!-- TFDOCS_OUTPUTS_START -->

@@ -132,3 +132,14 @@ variable "validation_allow_overwrite_records" {
   type    = bool
   default = true
 }
+
+variable "additional_settings" {
+  type = list(object({
+    namespace = string
+    name      = string
+    value     = string
+  }))
+
+  default     = []
+  description = "Additional Elastic Beanstalk setttings. For full list of options, see https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html"
+}
