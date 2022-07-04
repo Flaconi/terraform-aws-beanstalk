@@ -55,6 +55,8 @@ module "elastic_beanstalk_environment" {
 
   force_destroy = true
 
+  additional_settings = var.additional_settings
+
   tags = var.tags
 }
 
