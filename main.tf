@@ -10,7 +10,8 @@ module "elastic_beanstalk_application" {
 }
 
 module "elastic_beanstalk_environment" {
-  source = "cloudposse/elastic-beanstalk-environment/aws"
+  source  = "cloudposse/elastic-beanstalk-environment/aws"
+  version = "0.46.0"
 
   depends_on = [
     aws_elastic_beanstalk_application_version.default,
