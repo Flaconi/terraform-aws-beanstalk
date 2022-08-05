@@ -58,6 +58,10 @@ module "elastic_beanstalk_environment" {
 
   additional_settings = var.additional_settings
 
+  managed_actions_enabled = var.managed_actions_enabled
+  preferred_start_time    = var.preferred_start_time
+  update_level            = var.update_level
+
   tags = var.tags
 }
 

@@ -241,6 +241,30 @@ list(object({
 
 Default: `[]`
 
+### <a name="input_managed_actions_enabled"></a> [managed\_actions\_enabled](#input\_managed\_actions\_enabled)
+
+Description: Enable managed platform updates. When you set this to true, you must also specify a `PreferredStartTime` and `UpdateLevel`
+
+Type: `bool`
+
+Default: `false`
+
+### <a name="input_preferred_start_time"></a> [preferred\_start\_time](#input\_preferred\_start\_time)
+
+Description: Configure a maintenance window for managed actions in UTC
+
+Type: `string`
+
+Default: `"Sun:10:00"`
+
+### <a name="input_update_level"></a> [update\_level](#input\_update\_level)
+
+Description: The highest level of update to apply with managed platform updates
+
+Type: `string`
+
+Default: `"minor"`
+
 <!-- TFDOCS_INPUTS_END -->
 
 <!-- TFDOCS_OUTPUTS_START -->
