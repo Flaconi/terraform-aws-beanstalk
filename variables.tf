@@ -143,3 +143,21 @@ variable "additional_settings" {
   default     = []
   description = "Additional Elastic Beanstalk setttings. For full list of options, see https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html"
 }
+
+variable "managed_actions_enabled" {
+  type        = bool
+  default     = false
+  description = "Enable managed platform updates. When you set this to true, you must also specify a `PreferredStartTime` and `UpdateLevel`"
+}
+
+variable "preferred_start_time" {
+  type        = string
+  default     = "Sun:10:00"
+  description = "Configure a maintenance window for managed actions in UTC"
+}
+
+variable "update_level" {
+  type        = string
+  default     = "minor"
+  description = "The highest level of update to apply with managed platform updates"
+}
