@@ -251,7 +251,7 @@ Default: `true`
 
 ### <a name="input_additional_settings"></a> [additional\_settings](#input\_additional\_settings)
 
-Description: Additional Elastic Beanstalk setttings. For full list of options, see https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html
+Description: Additional Elastic Beanstalk settings. For full list of options, see https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html
 
 Type:
 
