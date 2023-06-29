@@ -11,7 +11,7 @@ module "elastic_beanstalk_application" {
 
 module "elastic_beanstalk_environment" {
   source  = "cloudposse/elastic-beanstalk-environment/aws"
-  version = "0.46.0"
+  version = "0.50.0"
 
   depends_on = [
     aws_elastic_beanstalk_application_version.default,
@@ -118,7 +118,7 @@ data "aws_route53_zone" "selected" {
 }
 
 module "acm" {
-  source = "github.com/terraform-aws-modules/terraform-aws-acm.git?ref=v3.2.0"
+  source = "github.com/terraform-aws-modules/terraform-aws-acm.git?ref=v4.3.2"
 
   validate_certificate = false
   create_certificate   = var.domain_name != "" ? true : false
