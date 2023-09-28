@@ -121,6 +121,30 @@ Type: `number`
 
 Default: `15`
 
+### <a name="input_health_streaming_enabled"></a> [health\_streaming\_enabled](#input\_health\_streaming\_enabled)
+
+Description: For environments with enhanced health reporting enabled, whether to create a group in CloudWatch Logs for environment health and archive Elastic Beanstalk environment health data. For information about enabling enhanced health, see aws:elasticbeanstalk:healthreporting:system.
+
+Type: `bool`
+
+Default: `false`
+
+### <a name="input_health_streaming_delete_on_terminate"></a> [health\_streaming\_delete\_on\_terminate](#input\_health\_streaming\_delete\_on\_terminate)
+
+Description: Whether to delete the log group when the environment is terminated. If false, the health data is kept RetentionInDays days.
+
+Type: `bool`
+
+Default: `false`
+
+### <a name="input_health_streaming_retention_in_days"></a> [health\_streaming\_retention\_in\_days](#input\_health\_streaming\_retention\_in\_days)
+
+Description: The number of days to keep the archived health data before it expires.
+
+Type: `number`
+
+Default: `7`
+
 ### <a name="input_autoscale_min"></a> [autoscale\_min](#input\_autoscale\_min)
 
 Description: Minumum instances to launch
@@ -265,6 +289,38 @@ Type: `string`
 
 Default: `"minor"`
 
+### <a name="input_enable_stream_logs"></a> [enable\_stream\_logs](#input\_enable\_stream\_logs)
+
+Description: Whether to create groups in CloudWatch Logs for proxy and deployment logs, and stream logs from each instance in your environment
+
+Type: `bool`
+
+Default: `false`
+
+### <a name="input_logs_delete_on_terminate"></a> [logs\_delete\_on\_terminate](#input\_logs\_delete\_on\_terminate)
+
+Description: Whether to delete the log groups when the environment is terminated. If false, the logs are kept RetentionInDays days
+
+Type: `bool`
+
+Default: `false`
+
+### <a name="input_logs_retention_in_days"></a> [logs\_retention\_in\_days](#input\_logs\_retention\_in\_days)
+
+Description: The number of days to keep log events before they expire.
+
+Type: `number`
+
+Default: `7`
+
+### <a name="input_keypair"></a> [keypair](#input\_keypair)
+
+Description: Name of SSH key that will be deployed on Elastic Beanstalk and DataPipeline instance. The key should be present in AWS
+
+Type: `string`
+
+Default: `""`
+
 <!-- TFDOCS_INPUTS_END -->
 
 <!-- TFDOCS_OUTPUTS_START -->
@@ -284,6 +340,7 @@ Default: `"minor"`
 | <a name="output_elastic_beanstalk_environment_instances"></a> [elastic\_beanstalk\_environment\_instances](#output\_elastic\_beanstalk\_environment\_instances) | Instances used by this environment |
 | <a name="output_elastic_beanstalk_environment_launch_configurations"></a> [elastic\_beanstalk\_environment\_launch\_configurations](#output\_elastic\_beanstalk\_environment\_launch\_configurations) | Launch configurations in use by this environment |
 | <a name="output_elastic_beanstalk_environment_load_balancers"></a> [elastic\_beanstalk\_environment\_load\_balancers](#output\_elastic\_beanstalk\_environment\_load\_balancers) | Elastic Load Balancers in use by this environment |
+| <a name="output_elastic_beanstalk_environment_log_streams"></a> [elastic\_beanstalk\_environment\_log\_streams](#output\_elastic\_beanstalk\_environment\_log\_streams) | Log Streaming in this environment |
 | <a name="output_elastic_beanstalk_environment_name"></a> [elastic\_beanstalk\_environment\_name](#output\_elastic\_beanstalk\_environment\_name) | Name |
 | <a name="output_elastic_beanstalk_environment_queues"></a> [elastic\_beanstalk\_environment\_queues](#output\_elastic\_beanstalk\_environment\_queues) | SQS queues in use by this environment |
 | <a name="output_elastic_beanstalk_environment_security_group_arn"></a> [elastic\_beanstalk\_environment\_security\_group\_arn](#output\_elastic\_beanstalk\_environment\_security\_group\_arn) | Elastic Beanstalk environment Security Group ARN |
