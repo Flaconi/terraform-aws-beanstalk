@@ -98,3 +98,8 @@ output "elastic_beanstalk_environment_triggers" {
   description = "Autoscaling triggers in use by this environment"
   value       = module.elastic_beanstalk_environment.triggers
 }
+
+output "elastic_beanstalk_environment_log_streams" {
+  description = "Log Streaming in this environment"
+  value       = var.enable_stream_logs
+}

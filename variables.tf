@@ -43,6 +43,24 @@ variable "healthcheck_interval" {
   description = "The interval of time, in seconds, that Elastic Load Balancing checks the health of the Amazon EC2 instances of your application"
 }
 
+variable "health_streaming_enabled" {
+  type        = bool
+  default     = false
+  description = "For environments with enhanced health reporting enabled, whether to create a group in CloudWatch Logs for environment health and archive Elastic Beanstalk environment health data. For information about enabling enhanced health, see aws:elasticbeanstalk:healthreporting:system."
+}
+
+variable "health_streaming_delete_on_terminate" {
+  type        = bool
+  default     = false
+  description = "Whether to delete the log group when the environment is terminated. If false, the health data is kept RetentionInDays days."
+}
+
+variable "health_streaming_retention_in_days" {
+  type        = number
+  default     = 7
+  description = "The number of days to keep the archived health data before it expires."
+}
+
 variable "private_subnet_ids" {
   type        = list(string)
   description = "List of subnets"
@@ -160,4 +178,28 @@ variable "update_level" {
   type        = string
   default     = "minor"
   description = "The highest level of update to apply with managed platform updates"
+}
+
+variable "enable_stream_logs" {
+  type        = bool
+  default     = false
+  description = "Whether to create groups in CloudWatch Logs for proxy and deployment logs, and stream logs from each instance in your environment"
+}
+
+variable "logs_delete_on_terminate" {
+  type        = bool
+  default     = false
+  description = "Whether to delete the log groups when the environment is terminated. If false, the logs are kept RetentionInDays days"
+}
+
+variable "logs_retention_in_days" {
+  type        = number
+  default     = 7
+  description = "The number of days to keep log events before they expire."
+}
+
+variable "keypair" {
+  type        = string
+  description = "Name of SSH key that will be deployed on Elastic Beanstalk and DataPipeline instance. The key should be present in AWS"
+  default     = ""
 }
