@@ -22,6 +22,8 @@ module "elastic_beanstalk_environment" {
   description = var.description
   region      = var.region
 
+  keypair = var.keypair
+
   version_label = aws_elastic_beanstalk_application_version.default.id
 
   elastic_beanstalk_application_name = var.application_name
@@ -40,8 +42,11 @@ module "elastic_beanstalk_environment" {
 
   instance_type = var.instance_type
 
-  healthcheck_url      = var.healthcheck_url
-  healthcheck_interval = var.healthcheck_interval
+  healthcheck_url                      = var.healthcheck_url
+  healthcheck_interval                 = var.healthcheck_interval
+  health_streaming_enabled             = var.health_streaming_enabled
+  health_streaming_delete_on_terminate = var.health_streaming_delete_on_terminate
+  health_streaming_retention_in_days   = var.health_streaming_retention_in_days
 
   allow_all_egress = true
 
@@ -55,6 +60,10 @@ module "elastic_beanstalk_environment" {
   dns_subdomain = var.dns_subdomain
 
   force_destroy = true
+
+  enable_stream_logs       = var.enable_stream_logs
+  logs_delete_on_terminate = var.logs_delete_on_terminate
+  logs_retention_in_days   = var.logs_retention_in_days
 
   additional_settings = var.additional_settings
 
