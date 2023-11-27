@@ -38,7 +38,7 @@ module "elastic_beanstalk_environment" {
   loadbalancer_subnets         = var.public_subnet_ids
   loadbalancer_type            = var.loadbalancer_type
   loadbalancer_certificate_arn = module.acm.acm_certificate_arn
-  loadbalancer_ssl_policy      = var.domain_name != "" ? "ELBSecurityPolicy-2016-08" : var.loadbalancer_ssl_policy
+  loadbalancer_ssl_policy      = var.loadbalancer_ssl_policy == "" ? "ELBSecurityPolicy-2016-08" : var.loadbalancer_ssl_policy
 
   instance_type = var.instance_type
 
