@@ -159,7 +159,7 @@ variable "additional_settings" {
   }))
 
   default     = []
-  description = "Additional Elastic Beanstalk setttings. For full list of options, see https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html"
+  description = "Additional Elastic Beanstalk settings. For full list of options, see https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html"
 }
 
 variable "managed_actions_enabled" {

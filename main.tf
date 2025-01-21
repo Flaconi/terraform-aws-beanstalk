@@ -1,7 +1,7 @@
 module "elastic_beanstalk_application" {
   source = "cloudposse/elastic-beanstalk-application/aws"
   # Cloud Posse recommends pinning every module to a specific version
-  version = "0.11.1"
+  version = "0.12.0"
 
   name        = var.application_name
   description = "Test Elastic Beanstalk application"
@@ -11,7 +11,7 @@ module "elastic_beanstalk_application" {
 
 module "elastic_beanstalk_environment" {
   source  = "cloudposse/elastic-beanstalk-environment/aws"
-  version = "0.51.0"
+  version = "0.52.0"
 
   depends_on = [
     aws_elastic_beanstalk_application_version.default,
@@ -129,7 +129,7 @@ data "aws_route53_zone" "selected" {
 }
 
 module "acm" {
-  source = "github.com/terraform-aws-modules/terraform-aws-acm.git?ref=v3.2.0"
+  source = "github.com/terraform-aws-modules/terraform-aws-acm.git?ref=v5.1.1"
 
   validate_certificate = false
   create_certificate   = var.domain_name != "" ? true : false
