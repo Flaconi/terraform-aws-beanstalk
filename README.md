@@ -321,6 +321,15 @@ Type: `string`
 
 Default: `""`
 
+### <a name="input_additional_security_group_rules"></a> [additional\_security\_group\_rules](#input\_additional\_security\_group\_rules)
+
+Description: A list of Security Group rule objects to add to the created security group, in addition to the ones  
+this module normally creates.
+
+Type: `list(any)`
+
+Default: `[]`
+
 <!-- TFDOCS_INPUTS_END -->
 
 <!-- TFDOCS_OUTPUTS_START -->

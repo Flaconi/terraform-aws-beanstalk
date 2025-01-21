@@ -50,6 +50,8 @@ module "elastic_beanstalk_environment" {
 
   allow_all_egress = true
 
+  additional_security_group_rules = var.additional_security_group_rules
+
   solution_stack_name = var.solution_stack_name
   env_vars            = var.env_vars
 
