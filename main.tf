@@ -11,7 +11,7 @@ module "elastic_beanstalk_application" {
 
 module "elastic_beanstalk_environment" {
   source  = "cloudposse/elastic-beanstalk-environment/aws"
-  version = "0.46.0"
+  version = "0.51.0"
 
   depends_on = [
     aws_elastic_beanstalk_application_version.default,
@@ -50,6 +50,8 @@ module "elastic_beanstalk_environment" {
 
   allow_all_egress = true
 
+  additional_security_group_rules = var.additional_security_group_rules
+
   solution_stack_name = var.solution_stack_name
   env_vars            = var.env_vars
 
@@ -85,7 +87,7 @@ data "aws_iam_policy_document" "minimal_s3_permissions" {
   }
 }
 
-resource "aws_s3_bucket_object" "deployment" {
+resource "aws_s3_object" "deployment" {
   bucket  = var.deployment_bucket
   key     = "${var.application_name}-${var.deployment_version}-${var.deployment_file_path}"
   content = var.deployment_definition
@@ -98,7 +100,7 @@ resource "aws_elastic_beanstalk_application_version" "default" {
   application = var.application_name
   description = "application version created by terraform"
   bucket      = var.deployment_bucket
-  key         = aws_s3_bucket_object.deployment.id
+  key         = aws_s3_object.deployment.id
 }
 
 data "aws_route53_zone" "parent" {

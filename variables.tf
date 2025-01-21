@@ -203,3 +203,16 @@ variable "keypair" {
   description = "Name of SSH key that will be deployed on Elastic Beanstalk and DataPipeline instance. The key should be present in AWS"
   default     = ""
 }
+
+variable "additional_security_group_rules" {
+  type = list(object({
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    type        = string
+    cidr_blocks = list(string)
+    description = optional(string)
+  }))
+  default     = []
+  description = "A list of Security Group rule objects to add to the created security group, in addition to the ones this module normally creates."
+}
