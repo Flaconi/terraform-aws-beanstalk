@@ -25,7 +25,7 @@ Template for Terraform modules
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.0 |
 
 <!-- TFDOCS_REQUIREMENTS_END -->
@@ -323,10 +323,20 @@ Default: `""`
 
 ### <a name="input_additional_security_group_rules"></a> [additional\_security\_group\_rules](#input\_additional\_security\_group\_rules)
 
-Description: A list of Security Group rule objects to add to the created security group, in addition to the ones  
-this module normally creates.
+Description: A list of Security Group rule objects to add to the created security group, in addition to the ones this module normally creates.
 
-Type: `list(any)`
+Type:
+
+```hcl
+list(object({
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    type        = string
+    cidr_blocks = list(string)
+    description = optional(string)
+  }))
+```
 
 Default: `[]`
 
