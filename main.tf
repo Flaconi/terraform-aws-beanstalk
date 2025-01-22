@@ -1,3 +1,36 @@
+module "acm" {
+  source  = "terraform-aws-modules/acm/aws"
+  version = "5.1.1"
+
+  create_certificate = var.domain_name != "" ? true : false
+
+  domain_name               = var.dns_subdomain
+  subject_alternative_names = var.subject_alternative_names
+
+  validate_certificate = false
+  validation_method    = "DNS"
+
+  tags = var.tags
+}
+
+resource "aws_route53_record" "validation" {
+  depends_on = [module.acm]
+
+  count = length(local.hostnames)
+
+  zone_id         = local.validation_zone_mapping[module.acm.acm_certificate_domain_validation_options[count.index]["domain_name"]]
+  name            = module.acm.acm_certificate_domain_validation_options[count.index]["resource_record_name"]
+  type            = module.acm.acm_certificate_domain_validation_options[count.index]["resource_record_type"]
+  records         = [module.acm.acm_certificate_domain_validation_options[count.index]["resource_record_value"]]
+  ttl             = 60
+  allow_overwrite = var.validation_allow_overwrite_records
+}
+
+resource "aws_acm_certificate_validation" "this" {
+  certificate_arn         = module.acm.acm_certificate_arn
+  validation_record_fqdns = aws_route53_record.validation.*.fqdn
+}
+
 module "elastic_beanstalk_application" {
   source = "cloudposse/elastic-beanstalk-application/aws"
   # Cloud Posse recommends pinning every module to a specific version
@@ -103,51 +136,7 @@ resource "aws_elastic_beanstalk_application_version" "default" {
   key         = aws_s3_object.deployment.id
 }
 
-data "aws_route53_zone" "parent" {
-  count        = length(local.hostnames)
-  name         = replace(local.hostnames[count.index], local.host_to_zone_regex, "$1")
-  private_zone = false
-}
-
-resource "aws_route53_record" "validation" {
-  depends_on = [module.acm]
-
-  count = length(local.hostnames)
-
-  zone_id         = local.validation_zone_mapping[module.acm.acm_certificate_domain_validation_options[count.index]["domain_name"]]
-  name            = module.acm.acm_certificate_domain_validation_options[count.index]["resource_record_name"]
-  type            = module.acm.acm_certificate_domain_validation_options[count.index]["resource_record_type"]
-  records         = [module.acm.acm_certificate_domain_validation_options[count.index]["resource_record_value"]]
-  ttl             = 60
-  allow_overwrite = var.validation_allow_overwrite_records
-}
-
-data "aws_route53_zone" "selected" {
-  count        = var.domain_name != "" ? 1 : 0
-  name         = var.domain_name
-  private_zone = false
-}
-
-module "acm" {
-  source  = "terraform-aws-modules/acm/aws"
-  version = "5.1.1"
-
-  validate_certificate = false
-  create_certificate   = var.domain_name != "" ? true : false
-
-  domain_name               = var.dns_subdomain
-  subject_alternative_names = var.subject_alternative_names
-
-}
-
-data "aws_route53_zone" "additional" {
-  count        = length(var.subject_alternative_names)
-  name         = replace(var.subject_alternative_names[count.index], local.host_to_zone_regex, "$1")
-  private_zone = false
-}
-
 resource "aws_route53_record" "additional" {
-
   depends_on = [module.elastic_beanstalk_environment]
   count      = length(var.subject_alternative_names)
 
@@ -160,10 +149,4 @@ resource "aws_route53_record" "additional" {
     zone_id                = module.elastic_beanstalk_environment.elb_zone_id
     evaluate_target_health = true
   }
-}
-
-resource "aws_acm_certificate_validation" "this" {
-
-  certificate_arn         = module.acm.acm_certificate_arn
-  validation_record_fqdns = aws_route53_record.validation.*.fqdn
 }
