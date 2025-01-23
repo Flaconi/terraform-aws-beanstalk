@@ -31,7 +31,7 @@ resource "aws_acm_certificate_validation" "this" {
   validation_record_fqdns = aws_route53_record.validation.*.fqdn
 }
 
-module "elastic_beanstalk_application" {
+module "application" {
   source = "cloudposse/elastic-beanstalk-application/aws"
   # Cloud Posse recommends pinning every module to a specific version
   version = "0.12.0"
@@ -42,7 +42,7 @@ module "elastic_beanstalk_application" {
   tags = var.tags
 }
 
-module "elastic_beanstalk_environment" {
+module "environment" {
   source  = "cloudposse/elastic-beanstalk-environment/aws"
   version = "0.51.2"
 
@@ -127,7 +127,7 @@ resource "aws_s3_object" "deployment" {
 }
 
 resource "aws_elastic_beanstalk_application_version" "default" {
-  depends_on = [module.elastic_beanstalk_application]
+  depends_on = [module.application]
 
   name        = "${var.application_name}-${var.deployment_version}"
   application = var.application_name
@@ -137,7 +137,7 @@ resource "aws_elastic_beanstalk_application_version" "default" {
 }
 
 resource "aws_route53_record" "additional" {
-  depends_on = [module.elastic_beanstalk_environment]
+  depends_on = [module.environment]
   count      = length(var.subject_alternative_names)
 
   zone_id = data.aws_route53_zone.additional[count.index].zone_id
@@ -145,8 +145,8 @@ resource "aws_route53_record" "additional" {
   type    = "A"
 
   alias {
-    name                   = module.elastic_beanstalk_environment.endpoint
-    zone_id                = module.elastic_beanstalk_environment.elb_zone_id
+    name                   = module.environment.endpoint
+    zone_id                = module.environment.elb_zone_id
     evaluate_target_health = true
   }
 }
