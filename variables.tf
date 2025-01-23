@@ -21,7 +21,7 @@ variable "loadbalancer_type" {
 
 variable "loadbalancer_ssl_policy" {
   type        = string
-  default     = ""
+  default     = "ELBSecurityPolicy-TLS13-1-2-2021-06"
   description = "Specify a security policy to apply to the listener. This option is only applicable to environments with an application load balancer"
 }
 
