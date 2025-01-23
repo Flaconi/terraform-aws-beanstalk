@@ -95,7 +95,7 @@ Description: Specify a security policy to apply to the listener. This option is 
 
 Type: `string`
 
-Default: `""`
+Default: `"ELBSecurityPolicy-TLS13-1-2-2021-06"`
 
 ### <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type)
 
