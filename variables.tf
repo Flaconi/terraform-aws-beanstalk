@@ -43,6 +43,12 @@ variable "healthcheck_interval" {
   description = "The interval of time, in seconds, that Elastic Load Balancing checks the health of the Amazon EC2 instances of your application"
 }
 
+variable "healthcheck_timeout" {
+  type        = number
+  default     = 5
+  description = "The amount of time, in seconds, to wait for a response during a health check. Note that this option is only applicable to environments with an application load balancer"
+}
+
 variable "health_streaming_enabled" {
   type        = bool
   default     = false

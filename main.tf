@@ -77,6 +77,7 @@ module "environment" {
 
   healthcheck_url                      = var.healthcheck_url
   healthcheck_interval                 = var.healthcheck_interval
+  healthcheck_timeout                  = var.healthcheck_timeout
   health_streaming_enabled             = var.health_streaming_enabled
   health_streaming_delete_on_terminate = var.health_streaming_delete_on_terminate
   health_streaming_retention_in_days   = var.health_streaming_retention_in_days

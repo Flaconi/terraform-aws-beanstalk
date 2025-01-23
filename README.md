@@ -121,6 +121,14 @@ Type: `number`
 
 Default: `15`
 
+### <a name="input_healthcheck_timeout"></a> [healthcheck\_timeout](#input\_healthcheck\_timeout)
+
+Description: The amount of time, in seconds, to wait for a response during a health check. Note that this option is only applicable to environments with an application load balancer
+
+Type: `number`
+
+Default: `5`
+
 ### <a name="input_health_streaming_enabled"></a> [health\_streaming\_enabled](#input\_health\_streaming\_enabled)
 
 Description: For environments with enhanced health reporting enabled, whether to create a group in CloudWatch Logs for environment health and archive Elastic Beanstalk environment health data. For information about enabling enhanced health, see aws:elasticbeanstalk:healthreporting:system.
