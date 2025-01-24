@@ -95,6 +95,48 @@ variable "autoscale_max" {
   default     = 1
 }
 
+variable "autoscale_measure_name" {
+  type        = string
+  default     = "CPUUtilization"
+  description = "Metric used for your Auto Scaling trigger"
+}
+
+variable "autoscale_statistic" {
+  type        = string
+  default     = "Average"
+  description = "Statistic the trigger should use, such as Average"
+}
+
+variable "autoscale_unit" {
+  type        = string
+  default     = "Percent"
+  description = "Unit for the trigger measurement, such as Bytes"
+}
+
+variable "autoscale_lower_bound" {
+  type        = number
+  default     = 20
+  description = "Minimum level of autoscale metric to remove an instance"
+}
+
+variable "autoscale_lower_increment" {
+  type        = number
+  default     = -1
+  description = "How many Amazon EC2 instances to remove when performing a scaling activity."
+}
+
+variable "autoscale_upper_bound" {
+  type        = number
+  default     = 80
+  description = "Maximum level of autoscale metric to add an instance"
+}
+
+variable "autoscale_upper_increment" {
+  type        = number
+  default     = 1
+  description = "How many Amazon EC2 instances to add when performing a scaling activity"
+}
+
 variable "solution_stack_name" {
   type        = string
   description = "Elastic Beanstalk stack, e.g. Docker, Go, Node, Java, IIS. For more info, see https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html"
