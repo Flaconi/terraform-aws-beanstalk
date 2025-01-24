@@ -73,7 +73,8 @@ module "environment" {
   loadbalancer_certificate_arn = module.acm.acm_certificate_arn
   loadbalancer_ssl_policy      = var.loadbalancer_ssl_policy
 
-  instance_type = var.instance_type
+  instance_type    = var.instance_type
+  root_volume_type = var.root_volume_type
 
   healthcheck_url                      = var.healthcheck_url
   healthcheck_interval                 = var.healthcheck_interval
