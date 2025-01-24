@@ -13,6 +13,12 @@ variable "vpc_id" {
   description = "ID of the VPC"
 }
 
+variable "availability_zone_selector" {
+  type        = string
+  default     = "Any 3"
+  description = "Availability Zone selector"
+}
+
 variable "loadbalancer_type" {
   type        = string
   default     = "application"
