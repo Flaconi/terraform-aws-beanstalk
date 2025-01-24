@@ -4,31 +4,15 @@ module "acm" {
 
   create_certificate = var.domain_name != "" ? true : false
 
-  domain_name               = var.dns_subdomain
-  subject_alternative_names = var.subject_alternative_names
+  validation_method = "DNS"
 
-  validate_certificate = false
-  validation_method    = "DNS"
+  domain_name = var.dns_subdomain
+  zone_id     = data.aws_route53_zone.selected[0].zone_id
+
+  subject_alternative_names = var.subject_alternative_names
+  zones                     = local.validation_zone_mapping
 
   tags = var.tags
-}
-
-resource "aws_route53_record" "validation" {
-  depends_on = [module.acm]
-
-  count = length(local.hostnames)
-
-  zone_id         = local.validation_zone_mapping[module.acm.acm_certificate_domain_validation_options[count.index]["domain_name"]]
-  name            = module.acm.acm_certificate_domain_validation_options[count.index]["resource_record_name"]
-  type            = module.acm.acm_certificate_domain_validation_options[count.index]["resource_record_type"]
-  records         = [module.acm.acm_certificate_domain_validation_options[count.index]["resource_record_value"]]
-  ttl             = 60
-  allow_overwrite = var.validation_allow_overwrite_records
-}
-
-resource "aws_acm_certificate_validation" "this" {
-  certificate_arn         = module.acm.acm_certificate_arn
-  validation_record_fqdns = aws_route53_record.validation.*.fqdn
 }
 
 module "application" {
@@ -48,7 +32,7 @@ module "environment" {
 
   depends_on = [
     aws_elastic_beanstalk_application_version.default,
-    aws_acm_certificate_validation.this,
+    module.acm,
   ]
 
   name        = var.application_name
