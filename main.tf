@@ -59,6 +59,7 @@ module "environment" {
 
   instance_type    = var.instance_type
   root_volume_type = var.root_volume_type
+  root_volume_size = var.root_volume_size
 
   healthcheck_url                      = var.healthcheck_url
   healthcheck_interval                 = var.healthcheck_interval
