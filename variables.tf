@@ -31,6 +31,12 @@ variable "instance_type" {
   description = "Instances type"
 }
 
+variable "root_volume_type" {
+  type        = string
+  default     = "gp3"
+  description = "The type of the EBS root volume"
+}
+
 variable "healthcheck_url" {
   type        = string
   default     = "/healthz"

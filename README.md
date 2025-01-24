@@ -105,6 +105,14 @@ Type: `string`
 
 Default: `"t3.micro"`
 
+### <a name="input_root_volume_type"></a> [root\_volume\_type](#input\_root\_volume\_type)
+
+Description: The type of the EBS root volume
+
+Type: `string`
+
+Default: `"gp3"`
+
 ### <a name="input_healthcheck_url"></a> [healthcheck\_url](#input\_healthcheck\_url)
 
 Description: Application Health Check URL. Elastic Beanstalk will call this URL to check the health of the application running on EC2 instances
