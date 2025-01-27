@@ -81,6 +81,14 @@ Type: `string`
 
 The following input variables are optional (have default values):
 
+### <a name="input_availability_zone_selector"></a> [availability\_zone\_selector](#input\_availability\_zone\_selector)
+
+Description: Availability Zone selector
+
+Type: `string`
+
+Default: `"Any 3"`
+
 ### <a name="input_loadbalancer_type"></a> [loadbalancer\_type](#input\_loadbalancer\_type)
 
 Description: Load Balancer type, e.g. 'application' or 'classic'
@@ -112,6 +120,14 @@ Description: The type of the EBS root volume
 Type: `string`
 
 Default: `"gp3"`
+
+### <a name="input_root_volume_size"></a> [root\_volume\_size](#input\_root\_volume\_size)
+
+Description: The size of the EBS root volume
+
+Type: `number`
+
+Default: `10`
 
 ### <a name="input_healthcheck_url"></a> [healthcheck\_url](#input\_healthcheck\_url)
 

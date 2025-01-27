@@ -13,6 +13,12 @@ variable "vpc_id" {
   description = "ID of the VPC"
 }
 
+variable "availability_zone_selector" {
+  type        = string
+  default     = "Any 3"
+  description = "Availability Zone selector"
+}
+
 variable "loadbalancer_type" {
   type        = string
   default     = "application"
@@ -35,6 +41,12 @@ variable "root_volume_type" {
   type        = string
   default     = "gp3"
   description = "The type of the EBS root volume"
+}
+
+variable "root_volume_size" {
+  type        = number
+  default     = 10
+  description = "The size of the EBS root volume"
 }
 
 variable "healthcheck_url" {
