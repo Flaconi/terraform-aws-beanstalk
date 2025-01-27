@@ -13,6 +13,12 @@ variable "vpc_id" {
   description = "ID of the VPC"
 }
 
+variable "availability_zone_selector" {
+  type        = string
+  default     = "Any 3"
+  description = "Availability Zone selector"
+}
+
 variable "loadbalancer_type" {
   type        = string
   default     = "application"
@@ -35,6 +41,12 @@ variable "root_volume_type" {
   type        = string
   default     = "gp3"
   description = "The type of the EBS root volume"
+}
+
+variable "root_volume_size" {
+  type        = number
+  default     = 10
+  description = "The size of the EBS root volume"
 }
 
 variable "healthcheck_url" {
@@ -93,6 +105,48 @@ variable "autoscale_max" {
   type        = number
   description = "Maximum instances to launch"
   default     = 1
+}
+
+variable "autoscale_measure_name" {
+  type        = string
+  default     = "CPUUtilization"
+  description = "Metric used for your Auto Scaling trigger"
+}
+
+variable "autoscale_statistic" {
+  type        = string
+  default     = "Average"
+  description = "Statistic the trigger should use, such as Average"
+}
+
+variable "autoscale_unit" {
+  type        = string
+  default     = "Percent"
+  description = "Unit for the trigger measurement, such as Bytes"
+}
+
+variable "autoscale_lower_bound" {
+  type        = number
+  default     = 20
+  description = "Minimum level of autoscale metric to remove an instance"
+}
+
+variable "autoscale_lower_increment" {
+  type        = number
+  default     = -1
+  description = "How many Amazon EC2 instances to remove when performing a scaling activity."
+}
+
+variable "autoscale_upper_bound" {
+  type        = number
+  default     = 80
+  description = "Maximum level of autoscale metric to add an instance"
+}
+
+variable "autoscale_upper_increment" {
+  type        = number
+  default     = 1
+  description = "How many Amazon EC2 instances to add when performing a scaling activity"
 }
 
 variable "solution_stack_name" {

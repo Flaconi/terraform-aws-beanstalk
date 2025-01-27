@@ -48,7 +48,17 @@ module "environment" {
   autoscale_min = var.autoscale_min
   autoscale_max = var.autoscale_max
 
+  autoscale_measure_name    = var.autoscale_measure_name
+  autoscale_statistic       = var.autoscale_statistic
+  autoscale_unit            = var.autoscale_unit
+  autoscale_lower_bound     = var.autoscale_lower_bound
+  autoscale_lower_increment = var.autoscale_lower_increment
+  autoscale_upper_bound     = var.autoscale_upper_bound
+  autoscale_upper_increment = var.autoscale_upper_increment
+
   vpc_id = var.vpc_id
+
+  availability_zone_selector = var.availability_zone_selector
 
   application_subnets = var.private_subnet_ids
 
@@ -59,6 +69,7 @@ module "environment" {
 
   instance_type    = var.instance_type
   root_volume_type = var.root_volume_type
+  root_volume_size = var.root_volume_size
 
   healthcheck_url                      = var.healthcheck_url
   healthcheck_interval                 = var.healthcheck_interval
