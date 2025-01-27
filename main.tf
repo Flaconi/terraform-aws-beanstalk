@@ -50,6 +50,8 @@ module "environment" {
 
   vpc_id = var.vpc_id
 
+  availability_zone_selector = var.availability_zone_selector
+
   application_subnets = var.private_subnet_ids
 
   loadbalancer_subnets         = var.public_subnet_ids
