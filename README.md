@@ -193,6 +193,62 @@ Type: `number`
 
 Default: `1`
 
+### <a name="input_autoscale_measure_name"></a> [autoscale\_measure\_name](#input\_autoscale\_measure\_name)
+
+Description: Metric used for your Auto Scaling trigger
+
+Type: `string`
+
+Default: `"CPUUtilization"`
+
+### <a name="input_autoscale_statistic"></a> [autoscale\_statistic](#input\_autoscale\_statistic)
+
+Description: Statistic the trigger should use, such as Average
+
+Type: `string`
+
+Default: `"Average"`
+
+### <a name="input_autoscale_unit"></a> [autoscale\_unit](#input\_autoscale\_unit)
+
+Description: Unit for the trigger measurement, such as Bytes
+
+Type: `string`
+
+Default: `"Percent"`
+
+### <a name="input_autoscale_lower_bound"></a> [autoscale\_lower\_bound](#input\_autoscale\_lower\_bound)
+
+Description: Minimum level of autoscale metric to remove an instance
+
+Type: `number`
+
+Default: `20`
+
+### <a name="input_autoscale_lower_increment"></a> [autoscale\_lower\_increment](#input\_autoscale\_lower\_increment)
+
+Description: How many Amazon EC2 instances to remove when performing a scaling activity.
+
+Type: `number`
+
+Default: `-1`
+
+### <a name="input_autoscale_upper_bound"></a> [autoscale\_upper\_bound](#input\_autoscale\_upper\_bound)
+
+Description: Maximum level of autoscale metric to add an instance
+
+Type: `number`
+
+Default: `80`
+
+### <a name="input_autoscale_upper_increment"></a> [autoscale\_upper\_increment](#input\_autoscale\_upper\_increment)
+
+Description: How many Amazon EC2 instances to add when performing a scaling activity
+
+Type: `number`
+
+Default: `1`
+
 ### <a name="input_env_vars"></a> [env\_vars](#input\_env\_vars)
 
 Description: Map of custom ENV variables to be provided to the application running on Elastic Beanstalk, e.g. env\_vars = { DB\_USER = 'admin' DB\_PASS = 'xxxxxx' }

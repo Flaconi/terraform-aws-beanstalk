@@ -48,6 +48,14 @@ module "environment" {
   autoscale_min = var.autoscale_min
   autoscale_max = var.autoscale_max
 
+  autoscale_measure_name    = var.autoscale_measure_name
+  autoscale_statistic       = var.autoscale_statistic
+  autoscale_unit            = var.autoscale_unit
+  autoscale_lower_bound     = var.autoscale_lower_bound
+  autoscale_lower_increment = var.autoscale_lower_increment
+  autoscale_upper_bound     = var.autoscale_upper_bound
+  autoscale_upper_increment = var.autoscale_upper_increment
+
   vpc_id = var.vpc_id
 
   availability_zone_selector = var.availability_zone_selector
