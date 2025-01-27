@@ -37,6 +37,12 @@ variable "root_volume_type" {
   description = "The type of the EBS root volume"
 }
 
+variable "root_volume_size" {
+  type        = number
+  default     = 10
+  description = "The size of the EBS root volume"
+}
+
 variable "healthcheck_url" {
   type        = string
   default     = "/healthz"
