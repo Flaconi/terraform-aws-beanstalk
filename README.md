@@ -436,7 +436,6 @@ Default: `[]`
 | Name | Description |
 |------|-------------|
 | <a name="output_elastic_beanstalk_application_name"></a> [elastic\_beanstalk\_application\_name](#output\_elastic\_beanstalk\_application\_name) | Elastic Beanstalk Application name |
-| <a name="output_elastic_beanstalk_environment_all_settings"></a> [elastic\_beanstalk\_environment\_all\_settings](#output\_elastic\_beanstalk\_environment\_all\_settings) | List of all option settings configured in the environment. These are a combination of default settings and their overrides from setting in the configuration |
 | <a name="output_elastic_beanstalk_environment_application"></a> [elastic\_beanstalk\_environment\_application](#output\_elastic\_beanstalk\_environment\_application) | The Elastic Beanstalk Application specified for this environment |
 | <a name="output_elastic_beanstalk_environment_autoscaling_groups"></a> [elastic\_beanstalk\_environment\_autoscaling\_groups](#output\_elastic\_beanstalk\_environment\_autoscaling\_groups) | The autoscaling groups used by this environment |
 | <a name="output_elastic_beanstalk_environment_ec2_instance_profile_role_name"></a> [elastic\_beanstalk\_environment\_ec2\_instance\_profile\_role\_name](#output\_elastic\_beanstalk\_environment\_ec2\_instance\_profile\_role\_name) | Instance IAM role name |
@@ -444,7 +443,6 @@ Default: `[]`
 | <a name="output_elastic_beanstalk_environment_endpoint"></a> [elastic\_beanstalk\_environment\_endpoint](#output\_elastic\_beanstalk\_environment\_endpoint) | Fully qualified DNS name for the environment |
 | <a name="output_elastic_beanstalk_environment_hostname"></a> [elastic\_beanstalk\_environment\_hostname](#output\_elastic\_beanstalk\_environment\_hostname) | DNS hostname |
 | <a name="output_elastic_beanstalk_environment_id"></a> [elastic\_beanstalk\_environment\_id](#output\_elastic\_beanstalk\_environment\_id) | ID of the Elastic Beanstalk environment |
-| <a name="output_elastic_beanstalk_environment_instances"></a> [elastic\_beanstalk\_environment\_instances](#output\_elastic\_beanstalk\_environment\_instances) | Instances used by this environment |
 | <a name="output_elastic_beanstalk_environment_launch_configurations"></a> [elastic\_beanstalk\_environment\_launch\_configurations](#output\_elastic\_beanstalk\_environment\_launch\_configurations) | Launch configurations in use by this environment |
 | <a name="output_elastic_beanstalk_environment_load_balancers"></a> [elastic\_beanstalk\_environment\_load\_balancers](#output\_elastic\_beanstalk\_environment\_load\_balancers) | Elastic Load Balancers in use by this environment |
 | <a name="output_elastic_beanstalk_environment_log_streams"></a> [elastic\_beanstalk\_environment\_log\_streams](#output\_elastic\_beanstalk\_environment\_log\_streams) | Log Streaming in this environment |
@@ -453,7 +451,6 @@ Default: `[]`
 | <a name="output_elastic_beanstalk_environment_security_group_arn"></a> [elastic\_beanstalk\_environment\_security\_group\_arn](#output\_elastic\_beanstalk\_environment\_security\_group\_arn) | Elastic Beanstalk environment Security Group ARN |
 | <a name="output_elastic_beanstalk_environment_security_group_id"></a> [elastic\_beanstalk\_environment\_security\_group\_id](#output\_elastic\_beanstalk\_environment\_security\_group\_id) | Elastic Beanstalk environment Security Group ID |
 | <a name="output_elastic_beanstalk_environment_security_group_name"></a> [elastic\_beanstalk\_environment\_security\_group\_name](#output\_elastic\_beanstalk\_environment\_security\_group\_name) | Elastic Beanstalk environment Security Group name |
-| <a name="output_elastic_beanstalk_environment_setting"></a> [elastic\_beanstalk\_environment\_setting](#output\_elastic\_beanstalk\_environment\_setting) | Settings specifically set for this environment |
 | <a name="output_elastic_beanstalk_environment_tier"></a> [elastic\_beanstalk\_environment\_tier](#output\_elastic\_beanstalk\_environment\_tier) | The environment tier |
 | <a name="output_elastic_beanstalk_environment_triggers"></a> [elastic\_beanstalk\_environment\_triggers](#output\_elastic\_beanstalk\_environment\_triggers) | Autoscaling triggers in use by this environment |
 
