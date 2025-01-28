@@ -53,16 +53,6 @@ output "elastic_beanstalk_environment_application" {
   value       = module.environment.application
 }
 
-output "elastic_beanstalk_environment_setting" {
-  description = "Settings specifically set for this environment"
-  value       = module.environment.setting
-}
-
-output "elastic_beanstalk_environment_all_settings" {
-  description = "List of all option settings configured in the environment. These are a combination of default settings and their overrides from setting in the configuration"
-  value       = module.environment.all_settings
-}
-
 output "elastic_beanstalk_environment_endpoint" {
   description = "Fully qualified DNS name for the environment"
   value       = module.environment.endpoint
@@ -71,11 +61,6 @@ output "elastic_beanstalk_environment_endpoint" {
 output "elastic_beanstalk_environment_autoscaling_groups" {
   description = "The autoscaling groups used by this environment"
   value       = module.environment.autoscaling_groups
-}
-
-output "elastic_beanstalk_environment_instances" {
-  description = "Instances used by this environment"
-  value       = module.environment.instances
 }
 
 output "elastic_beanstalk_environment_launch_configurations" {
