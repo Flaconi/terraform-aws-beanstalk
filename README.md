@@ -385,6 +385,14 @@ Type: `string`
 
 Default: `"minor"`
 
+### <a name="input_instance_refresh_enabled"></a> [instance\_refresh\_enabled](#input\_instance\_refresh\_enabled)
+
+Description: Enable weekly instance replacement.
+
+Type: `bool`
+
+Default: `false`
+
 ### <a name="input_enable_stream_logs"></a> [enable\_stream\_logs](#input\_enable\_stream\_logs)
 
 Description: Whether to create groups in CloudWatch Logs for proxy and deployment logs, and stream logs from each instance in your environment

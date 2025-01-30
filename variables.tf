@@ -252,6 +252,12 @@ variable "update_level" {
   description = "The highest level of update to apply with managed platform updates"
 }
 
+variable "instance_refresh_enabled" {
+  type        = bool
+  default     = false
+  description = "Enable weekly instance replacement."
+}
+
 variable "enable_stream_logs" {
   type        = bool
   default     = false

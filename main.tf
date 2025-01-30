@@ -99,9 +99,10 @@ module "environment" {
 
   additional_settings = var.additional_settings
 
-  managed_actions_enabled = var.managed_actions_enabled
-  preferred_start_time    = var.preferred_start_time
-  update_level            = var.update_level
+  managed_actions_enabled  = var.managed_actions_enabled
+  preferred_start_time     = var.preferred_start_time
+  update_level             = var.update_level
+  instance_refresh_enabled = var.instance_refresh_enabled
 
   tags = var.tags
 }
