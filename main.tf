@@ -82,7 +82,7 @@ module "environment" {
 
   additional_security_group_rules = var.additional_security_group_rules
 
-  solution_stack_name = var.solution_stack_name
+  solution_stack_name = data.aws_elastic_beanstalk_solution_stack.this.name
   env_vars            = var.env_vars
 
   prefer_legacy_ssm_policy     = false
@@ -99,9 +99,10 @@ module "environment" {
 
   additional_settings = var.additional_settings
 
-  managed_actions_enabled = var.managed_actions_enabled
-  preferred_start_time    = var.preferred_start_time
-  update_level            = var.update_level
+  managed_actions_enabled  = var.managed_actions_enabled
+  preferred_start_time     = var.preferred_start_time
+  update_level             = var.update_level
+  instance_refresh_enabled = var.instance_refresh_enabled
 
   tags = var.tags
 }

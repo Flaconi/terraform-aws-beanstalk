@@ -117,7 +117,7 @@ _gen-main:
 	@echo "------------------------------------------------------------"
 	@echo "# Main module"
 	@echo "------------------------------------------------------------"
-	@if docker run $$(tty -s && echo "-it" || echo) --rm \
+	@if docker run $$(tty -s && echo "-it" || echo) --rm --network host \
 		-v $(CURRENT_DIR):/data \
 		-e DELIM_START='<!-- TFDOCS_HEADER_START -->' \
 		-e DELIM_CLOSE='<!-- TFDOCS_HEADER_END -->' \
@@ -128,7 +128,7 @@ _gen-main:
 		echo "Failed"; \
 		exit 1; \
 	fi
-	@if docker run $$(tty -s && echo "-it" || echo) --rm \
+	@if docker run $$(tty -s && echo "-it" || echo) --rm --network host \
 		-v $(CURRENT_DIR):/data \
 		-e DELIM_START='<!-- TFDOCS_PROVIDER_START -->' \
 		-e DELIM_CLOSE='<!-- TFDOCS_PROVIDER_END -->' \
@@ -139,7 +139,7 @@ _gen-main:
 		echo "Failed"; \
 		exit 1; \
 	fi
-	@if docker run $$(tty -s && echo "-it" || echo) --rm \
+	@if docker run $$(tty -s && echo "-it" || echo) --rm --network host \
 		-v $(CURRENT_DIR):/data \
 		-e DELIM_START='<!-- TFDOCS_REQUIREMENTS_START -->' \
 		-e DELIM_CLOSE='<!-- TFDOCS_REQUIREMENTS_END -->' \
@@ -150,7 +150,7 @@ _gen-main:
 		echo "Failed"; \
 		exit 1; \
 	fi
-	@if docker run $$(tty -s && echo "-it" || echo) --rm \
+	@if docker run $$(tty -s && echo "-it" || echo) --rm --network host \
 		-v $(CURRENT_DIR):/data \
 		-e DELIM_START='<!-- TFDOCS_INPUTS_START -->' \
 		-e DELIM_CLOSE='<!-- TFDOCS_INPUTS_END -->' \
@@ -161,7 +161,7 @@ _gen-main:
 		echo "Failed"; \
 		exit 1; \
 	fi
-	@if docker run $$(tty -s && echo "-it" || echo) --rm \
+	@if docker run $$(tty -s && echo "-it" || echo) --rm --network host \
 		-v $(CURRENT_DIR):/data \
 		-e DELIM_START='<!-- TFDOCS_OUTPUTS_START -->' \
 		-e DELIM_CLOSE='<!-- TFDOCS_OUTPUTS_END -->' \
@@ -180,7 +180,7 @@ _gen-examples:
 		echo "------------------------------------------------------------"; \
 		echo "# $${DOCKER_PATH}"; \
 		echo "------------------------------------------------------------"; \
-		if docker run $$(tty -s && echo "-it" || echo) --rm \
+		if docker run $$(tty -s && echo "-it" || echo) --rm --network host \
 			-v $(CURRENT_DIR):/data \
 			-e DELIM_START='$(DELIM_START)' \
 			-e DELIM_CLOSE='$(DELIM_CLOSE)' \
@@ -200,7 +200,7 @@ _gen-modules:
 		echo "------------------------------------------------------------"; \
 		echo "# $${DOCKER_PATH}"; \
 		echo "------------------------------------------------------------"; \
-		if docker run $$(tty -s && echo "-it" || echo) --rm \
+		if docker run $$(tty -s && echo "-it" || echo) --rm --network host \
 			-v $(CURRENT_DIR):/data \
 			-e DELIM_START='$(DELIM_START)' \
 			-e DELIM_CLOSE='$(DELIM_CLOSE)' \

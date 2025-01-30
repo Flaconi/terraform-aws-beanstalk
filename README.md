@@ -65,7 +65,7 @@ Description: List of subnets
 
 Type: `list(string)`
 
-### <a name="input_solution_stack_name"></a> [solution\_stack\_name](#input\_solution\_stack\_name)
+### <a name="input_solution_stack_name_regex"></a> [solution\_stack\_name\_regex](#input\_solution\_stack\_name\_regex)
 
 Description: Elastic Beanstalk stack, e.g. Docker, Go, Node, Java, IIS. For more info, see https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html
 
@@ -249,6 +249,14 @@ Type: `number`
 
 Default: `1`
 
+### <a name="input_solution_stack_most_recent"></a> [solution\_stack\_most\_recent](#input\_solution\_stack\_most\_recent)
+
+Description: If more than one solution stack names is available, use the most recent solution stack.
+
+Type: `bool`
+
+Default: `true`
+
 ### <a name="input_env_vars"></a> [env\_vars](#input\_env\_vars)
 
 Description: Map of custom ENV variables to be provided to the application running on Elastic Beanstalk, e.g. env\_vars = { DB\_USER = 'admin' DB\_PASS = 'xxxxxx' }
@@ -376,6 +384,14 @@ Description: The highest level of update to apply with managed platform updates
 Type: `string`
 
 Default: `"minor"`
+
+### <a name="input_instance_refresh_enabled"></a> [instance\_refresh\_enabled](#input\_instance\_refresh\_enabled)
+
+Description: Enable weekly instance replacement.
+
+Type: `bool`
+
+Default: `false`
 
 ### <a name="input_enable_stream_logs"></a> [enable\_stream\_logs](#input\_enable\_stream\_logs)
 
