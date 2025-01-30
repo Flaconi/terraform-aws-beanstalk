@@ -65,7 +65,7 @@ Description: List of subnets
 
 Type: `list(string)`
 
-### <a name="input_solution_stack_name"></a> [solution\_stack\_name](#input\_solution\_stack\_name)
+### <a name="input_solution_stack_name_regex"></a> [solution\_stack\_name\_regex](#input\_solution\_stack\_name\_regex)
 
 Description: Elastic Beanstalk stack, e.g. Docker, Go, Node, Java, IIS. For more info, see https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html
 
@@ -248,6 +248,14 @@ Description: How many Amazon EC2 instances to add when performing a scaling acti
 Type: `number`
 
 Default: `1`
+
+### <a name="input_solution_stack_most_recent"></a> [solution\_stack\_most\_recent](#input\_solution\_stack\_most\_recent)
+
+Description: If more than one solution stack names is available, use the most recent solution stack.
+
+Type: `bool`
+
+Default: `true`
 
 ### <a name="input_env_vars"></a> [env\_vars](#input\_env\_vars)
 

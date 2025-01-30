@@ -82,7 +82,7 @@ module "environment" {
 
   additional_security_group_rules = var.additional_security_group_rules
 
-  solution_stack_name = var.solution_stack_name
+  solution_stack_name = data.aws_elastic_beanstalk_solution_stack.this.name
   env_vars            = var.env_vars
 
   prefer_legacy_ssm_policy     = false

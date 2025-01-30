@@ -149,9 +149,15 @@ variable "autoscale_upper_increment" {
   description = "How many Amazon EC2 instances to add when performing a scaling activity"
 }
 
-variable "solution_stack_name" {
+variable "solution_stack_name_regex" {
   type        = string
   description = "Elastic Beanstalk stack, e.g. Docker, Go, Node, Java, IIS. For more info, see https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html"
+}
+
+variable "solution_stack_most_recent" {
+  type        = bool
+  default     = true
+  description = "If more than one solution stack names is available, use the most recent solution stack."
 }
 
 variable "application_name" {
