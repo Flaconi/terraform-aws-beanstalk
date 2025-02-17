@@ -33,7 +33,7 @@ variable "loadbalancer_ssl_policy" {
 
 variable "instance_type" {
   type        = string
-  default     = "t3.micro"
+  default     = "t3.small"
   description = "Instances type"
 }
 

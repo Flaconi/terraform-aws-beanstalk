@@ -111,7 +111,7 @@ Description: Instances type
 
 Type: `string`
 
-Default: `"t3.micro"`
+Default: `"t3.small"`
 
 ### <a name="input_root_volume_type"></a> [root\_volume\_type](#input\_root\_volume\_type)
 
