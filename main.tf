@@ -131,7 +131,7 @@ resource "aws_elastic_beanstalk_application_version" "default" {
   application = var.application_name
   description = "application version created by terraform"
   bucket      = var.deployment_bucket
-  key         = aws_s3_object.deployment.id
+  key         = aws_s3_object.deployment.key
 }
 
 resource "aws_route53_record" "additional" {
