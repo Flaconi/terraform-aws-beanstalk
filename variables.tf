@@ -31,6 +31,12 @@ variable "loadbalancer_ssl_policy" {
   description = "Specify a security policy to apply to the listener. This option is only applicable to environments with an application load balancer"
 }
 
+variable "loadbalancer_redirect_http_to_https" {
+  type        = bool
+  default     = false
+  description = "Redirect HTTP traffic to HTTPS listener"
+}
+
 variable "instance_type" {
   type        = string
   default     = "t3.small"

@@ -105,6 +105,14 @@ Type: `string`
 
 Default: `"ELBSecurityPolicy-TLS13-1-2-2021-06"`
 
+### <a name="input_loadbalancer_redirect_http_to_https"></a> [loadbalancer\_redirect\_http\_to\_https](#input\_loadbalancer\_redirect\_http\_to\_https)
+
+Description: Redirect HTTP traffic to HTTPS listener
+
+Type: `bool`
+
+Default: `false`
+
 ### <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type)
 
 Description: Instances type
