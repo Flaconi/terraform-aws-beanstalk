@@ -1,6 +1,6 @@
 module "acm" {
   source  = "terraform-aws-modules/acm/aws"
-  version = "5.1.1"
+  version = "5.2.0"
 
   create_certificate = var.domain_name != "" ? true : false
 
@@ -18,7 +18,7 @@ module "acm" {
 module "application" {
   source = "cloudposse/elastic-beanstalk-application/aws"
   # Cloud Posse recommends pinning every module to a specific version
-  version = "0.12.0"
+  version = "0.12.1"
 
   name        = var.application_name
   description = "Test Elastic Beanstalk application"
@@ -28,7 +28,7 @@ module "application" {
 
 module "environment" {
   source  = "cloudposse/elastic-beanstalk-environment/aws"
-  version = "0.51.2"
+  version = "0.53.0"
 
   depends_on = [
     aws_elastic_beanstalk_application_version.default,
@@ -62,10 +62,11 @@ module "environment" {
 
   application_subnets = var.private_subnet_ids
 
-  loadbalancer_subnets         = var.public_subnet_ids
-  loadbalancer_type            = var.loadbalancer_type
-  loadbalancer_certificate_arn = module.acm.acm_certificate_arn
-  loadbalancer_ssl_policy      = var.loadbalancer_ssl_policy
+  loadbalancer_subnets                = var.public_subnet_ids
+  loadbalancer_type                   = var.loadbalancer_type
+  loadbalancer_certificate_arn        = module.acm.acm_certificate_arn
+  loadbalancer_ssl_policy             = var.loadbalancer_ssl_policy
+  loadbalancer_redirect_http_to_https = var.loadbalancer_redirect_http_to_https
 
   instance_type    = var.instance_type
   root_volume_type = var.root_volume_type
