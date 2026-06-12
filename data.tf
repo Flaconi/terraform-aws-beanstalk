@@ -5,7 +5,7 @@ data "aws_elastic_beanstalk_solution_stack" "this" {
 
 data "aws_route53_zone" "parent" {
   count        = length(local.hostnames)
-  name         = replace(local.hostnames[count.index], local.host_to_zone_regex, "$1")
+  name         = local.host_to_zone[local.hostnames[count.index]]
   private_zone = false
 }
 
@@ -17,6 +17,6 @@ data "aws_route53_zone" "selected" {
 
 data "aws_route53_zone" "additional" {
   count        = length(var.subject_alternative_names)
-  name         = replace(var.subject_alternative_names[count.index], local.host_to_zone_regex, "$1")
+  name         = local.host_to_zone[var.subject_alternative_names[count.index]]
   private_zone = false
 }
