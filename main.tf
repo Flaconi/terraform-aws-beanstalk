@@ -1,6 +1,6 @@
 module "acm" {
   source  = "terraform-aws-modules/acm/aws"
-  version = "5.2.0"
+  version = "6.3.0"
 
   create_certificate = var.domain_name != "" ? true : false
 
@@ -18,7 +18,7 @@ module "acm" {
 module "application" {
   source = "cloudposse/elastic-beanstalk-application/aws"
   # Cloud Posse recommends pinning every module to a specific version
-  version = "0.12.1"
+  version = "0.13.0"
 
   name        = var.application_name
   description = "Test Elastic Beanstalk application"
