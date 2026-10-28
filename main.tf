@@ -30,11 +30,6 @@ module "environment" {
   source  = "cloudposse/elastic-beanstalk-environment/aws"
   version = "0.53.0"
 
-  depends_on = [
-    aws_elastic_beanstalk_application_version.default,
-    module.acm,
-  ]
-
   name        = var.application_name
   description = var.description
   region      = var.region
