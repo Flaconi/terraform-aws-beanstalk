@@ -3,6 +3,10 @@ data "aws_elastic_beanstalk_solution_stack" "this" {
   name_regex  = var.solution_stack_name_regex
 }
 
+data "aws_vpc" "this" {
+  id = var.vpc_id
+}
+
 data "aws_route53_zone" "parent" {
   count        = length(local.hostnames)
   name         = local.host_to_zone[local.hostnames[count.index]]
