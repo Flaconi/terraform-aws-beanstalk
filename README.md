@@ -433,6 +433,14 @@ Type: `string`
 
 Default: `""`
 
+### <a name="input_ssh_source_restriction"></a> [ssh\_source\_restriction](#input\_ssh\_source\_restriction)
+
+Description: CIDR range or security group allowed to reach the instances on port 22 (`SSHSourceRestriction`). Defaults to the CIDR of `vpc_id`. Do not also set `SSHSourceRestriction` in `additional_settings`.
+
+Type: `string`
+
+Default: `null`
+
 ### <a name="input_additional_security_group_rules"></a> [additional\_security\_group\_rules](#input\_additional\_security\_group\_rules)
 
 Description: A list of Security Group rule objects to add to the created security group, in addition to the ones this module normally creates.

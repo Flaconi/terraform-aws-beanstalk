@@ -1,6 +1,6 @@
 module "acm" {
   source  = "terraform-aws-modules/acm/aws"
-  version = "6.3.0"
+  version = "6.3.1"
 
   create_certificate = var.domain_name != "" ? true : false
 
@@ -28,18 +28,14 @@ module "application" {
 
 module "environment" {
   source  = "cloudposse/elastic-beanstalk-environment/aws"
-  version = "0.53.0"
-
-  depends_on = [
-    aws_elastic_beanstalk_application_version.default,
-    module.acm,
-  ]
+  version = "0.56.0"
 
   name        = var.application_name
   description = var.description
   region      = var.region
 
-  keypair = var.keypair
+  keypair                = var.keypair
+  ssh_source_restriction = coalesce(var.ssh_source_restriction, data.aws_vpc.this.cidr_block)
 
   version_label = aws_elastic_beanstalk_application_version.default.id
 

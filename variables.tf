@@ -288,6 +288,12 @@ variable "keypair" {
   default     = ""
 }
 
+variable "ssh_source_restriction" {
+  type        = string
+  default     = null
+  description = "CIDR range or security group allowed to reach the instances on port 22 (`SSHSourceRestriction`). Defaults to the CIDR of `vpc_id`. Do not also set `SSHSourceRestriction` in `additional_settings`."
+}
+
 variable "additional_security_group_rules" {
   type = list(object({
     from_port   = number
