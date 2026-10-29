@@ -306,3 +306,9 @@ variable "additional_security_group_rules" {
   default     = []
   description = "A list of Security Group rule objects to add to the created security group, in addition to the ones this module normally creates."
 }
+
+variable "loadbalancer_logs_expiration_days" {
+  type        = number
+  default     = null
+  description = "Number of days after which Load Balancer access logs are expired from the S3 log bucket. Also expires noncurrent versions after 1 day, removes expired delete markers and aborts incomplete multipart uploads after 1 day. Disabled when null."
+}

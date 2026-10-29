@@ -87,3 +87,8 @@ output "elastic_beanstalk_environment_log_streams" {
   description = "Log Streaming in this environment"
   value       = var.enable_stream_logs
 }
+
+output "elastic_beanstalk_environment_load_balancer_log_bucket" {
+  description = "Name of the S3 bucket where Load Balancer access logs are stored"
+  value       = module.environment.load_balancer_log_bucket
+}

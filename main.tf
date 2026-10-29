@@ -145,3 +145,42 @@ resource "aws_route53_record" "additional" {
     evaluate_target_health = true
   }
 }
+
+resource "aws_s3_bucket_lifecycle_configuration" "loadbalancer_logs" {
+  count = var.loadbalancer_logs_expiration_days != null && var.loadbalancer_type != "network" ? 1 : 0
+
+  bucket = module.environment.load_balancer_log_bucket
+
+  rule {
+    id     = "logs-retention"
+    status = "Enabled"
+
+    filter {}
+
+    expiration {
+      days = var.loadbalancer_logs_expiration_days
+    }
+
+    noncurrent_version_expiration {
+      noncurrent_days = 1
+    }
+
+    abort_incomplete_multipart_upload {
+      days_after_initiation = 1
+    }
+  }
+
+  # Expiring current versions leaves a delete marker behind; clean those up once no versions remain
+  rule {
+    id     = "expired-delete-markers"
+    status = "Enabled"
+
+    filter {}
+
+    expiration {
+      expired_object_delete_marker = true
+    }
+  }
+
+  depends_on = [module.environment]
+}

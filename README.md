@@ -460,6 +460,14 @@ list(object({
 
 Default: `[]`
 
+### <a name="input_loadbalancer_logs_expiration_days"></a> [loadbalancer\_logs\_expiration\_days](#input\_loadbalancer\_logs\_expiration\_days)
+
+Description: Number of days after which Load Balancer access logs are expired from the S3 log bucket. Also expires noncurrent versions after 1 day, removes expired delete markers and aborts incomplete multipart uploads after 1 day. Disabled when null.
+
+Type: `number`
+
+Default: `null`
+
 <!-- TFDOCS_INPUTS_END -->
 
 <!-- TFDOCS_OUTPUTS_START -->
@@ -476,6 +484,7 @@ Default: `[]`
 | <a name="output_elastic_beanstalk_environment_hostname"></a> [elastic\_beanstalk\_environment\_hostname](#output\_elastic\_beanstalk\_environment\_hostname) | DNS hostname |
 | <a name="output_elastic_beanstalk_environment_id"></a> [elastic\_beanstalk\_environment\_id](#output\_elastic\_beanstalk\_environment\_id) | ID of the Elastic Beanstalk environment |
 | <a name="output_elastic_beanstalk_environment_launch_configurations"></a> [elastic\_beanstalk\_environment\_launch\_configurations](#output\_elastic\_beanstalk\_environment\_launch\_configurations) | Launch configurations in use by this environment |
+| <a name="output_elastic_beanstalk_environment_load_balancer_log_bucket"></a> [elastic\_beanstalk\_environment\_load\_balancer\_log\_bucket](#output\_elastic\_beanstalk\_environment\_load\_balancer\_log\_bucket) | Name of the S3 bucket where Load Balancer access logs are stored |
 | <a name="output_elastic_beanstalk_environment_load_balancers"></a> [elastic\_beanstalk\_environment\_load\_balancers](#output\_elastic\_beanstalk\_environment\_load\_balancers) | Elastic Load Balancers in use by this environment |
 | <a name="output_elastic_beanstalk_environment_log_streams"></a> [elastic\_beanstalk\_environment\_log\_streams](#output\_elastic\_beanstalk\_environment\_log\_streams) | Log Streaming in this environment |
 | <a name="output_elastic_beanstalk_environment_name"></a> [elastic\_beanstalk\_environment\_name](#output\_elastic\_beanstalk\_environment\_name) | Name |
